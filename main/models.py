@@ -65,7 +65,8 @@ class Product(models.Model):
     price = models.DecimalField(default=0, decimal_places=2, max_digits=10)
     discount = models.IntegerField(default=0, null=True, blank=True)
     size = models.ForeignKey(to='Size', on_delete=models.CASCADE)
-    tags = models.ManyToManyField(to='Tag')
+    tags = models.ManyToManyField(to='Tag', blank=True)
+    describtion = models.CharField(max_length=50, verbose_name='Tasvirlash :', null=True, blank=True)
     sub_category = models.ForeignKey(to="Sub_Category", on_delete=models.PROTECT)
     status_department = models.ForeignKey(to=Department, on_delete=models.PROTECT)
 
